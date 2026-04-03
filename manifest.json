@@ -1,20 +1,19 @@
 {
   "manifest_version": 3,
-  "name": "Grade Changer",
+  "name": "Persistent DevTools Edits",
   "version": "1.0",
-  "description": "Change your grades on Canvas for fun.",
   "permissions": [
-    "scripting",
     "storage",
-    "activeTab"
+    "scripting",
+    "webNavigation"
   ],
-  "action": {
-    "default_popup": "popup.html"
-  },
   "content_scripts": [
     {
-      "matches": ["https://canvas.yourschool.edu/*"],  // Change to your Canvas URL
+      "matches": ["<all_urls>"],
       "js": ["content.js"]
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
 }
